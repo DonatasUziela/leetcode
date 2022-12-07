@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/add-two-numbers
-// node add-two-numbers/index.mjs
+// node problems/add-two-numbers/index.mjs
 
 import { ListNode } from './ListNode.mjs'
 import { testCases } from './testData.mjs';
