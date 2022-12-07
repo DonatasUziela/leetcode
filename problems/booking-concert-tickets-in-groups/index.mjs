@@ -31,7 +31,7 @@ const BookMyShow = function (n, m) {
     for (let row = 0; row < n; row++) {
         seats.push(availability)
     }
-    
+
     this.seats = seats;
 };
 
@@ -40,7 +40,7 @@ const BookMyShow = function (n, m) {
  * @param {number} start
  * @param {number} count
  */
-const insertUnavailability = (row, start, count ) =>
+const insertUnavailability = (row, start, count) =>
     row.slice(0, start) +
     createUnavailability(count) +
     row.slice(start + count)
@@ -50,7 +50,7 @@ const insertUnavailability = (row, start, count ) =>
  * @param {number} startingSeat
  * @param {number} count
  */
-BookMyShow.prototype.bookSeats = function(rowNumber, startingSeat, count) {
+BookMyShow.prototype.bookSeats = function (rowNumber, startingSeat, count) {
     this.seats[rowNumber] = insertUnavailability(this.seats[rowNumber], startingSeat, count);
 }
 
@@ -61,9 +61,9 @@ BookMyShow.prototype.bookSeats = function(rowNumber, startingSeat, count) {
  */
 BookMyShow.prototype.gather = function (k, maxRow) {
     if (maxRow > this.rowCount) throw new Error(`maxRow (${maxRow}) higher than rowCount (${this.rowCount})`);
-    
+
     if (k > this.seatsCountInRow) return [];
-    
+
     const available = createAvailability(k);
 
     for (let rowNumber = 0; rowNumber <= maxRow; rowNumber++) {
@@ -118,33 +118,20 @@ BookMyShow.prototype.scatter = function (k, maxRow) {
 // Tests
 
 import { expect } from 'chai';
-import { testData, testData2 } from './testData.mjs'
+import { testData } from './testData.mjs'
 
-testData.forEach(({ rows, seats, gather, scatter, expectedResult }) => {
-    const bookMyShow = new BookMyShow(rows, seats);
-    
-    // TODO: test data order of gather and scatter is important
-    gather.forEach(([groupSize, maxRow], index) => {
-        expect(bookMyShow.gather(groupSize, maxRow))
-            .to.deep.equal(expectedResult.gather[index])
-    })
-
-    scatter.forEach(([groupSize, maxRow], index) => {
-        expect(bookMyShow.scatter(groupSize, maxRow))
-            .to.equal(expectedResult.scatter[index])
-    })
-})
-
-testData2.forEach(([[_, ...actions], [contrains, ...inputs]]) => {
+testData.forEach(([[_, ...actions], [contrains, ...inputs], [__, ...outputs]]) => {
     const bookMyShow = new BookMyShow(contrains[0], contrains[1]);
 
     actions.forEach((action, index) => {
         const input = inputs[index];
+        const output = outputs[index];
+
         console.log({ action, input });
         if (action === 'gather') {
-            bookMyShow.gather(input[0], input[1])
+            expect(bookMyShow.gather(input[0], input[1])).to.deep.equal(output)
         } else if (action === 'scatter') {
-            bookMyShow.scatter(input[0], input[1])
+            expect(bookMyShow.scatter(input[0], input[1])).to.equal(output)
         }
     })
 })
