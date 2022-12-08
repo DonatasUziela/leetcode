@@ -10,10 +10,14 @@ export const testData = [
         [null, [], true]
     ],
     [
+        ["BookMyShow","scatter","gather","gather"],
+        [[3,7],[9,0],[2,2],[8,2]],
+        [null,false,[0,0],[]]
+    ],
+    [
         ["BookMyShow","scatter","gather","gather","gather"],
         [[3,999999999],[1000000000,2],[999999999,2],[999999999,2],[999999999,2]],
-        // don't know what is the expected result, but it should at least not fail due to memory exc
-        [null, true, [], []]
-    ]
+        [null, true, [2, 0], [], []]
+    ],
 ]
     
