@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/add-two-numbers
 // node problems/add-two-numbers/index.mjs
 
-import { ListNode } from './ListNode.mjs'
+import { ListNode } from '../ListNode.mjs'
 import { testCases } from './testData.mjs';
 
 /**
