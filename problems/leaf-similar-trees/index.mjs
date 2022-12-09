@@ -2,7 +2,7 @@
 // node problems/leaf-similar-trees/index.mjs
 
 import { expect } from 'chai';
-import { TreeNode, postOrder } from '../TreeNode.mjs'
+import { TreeNode, postOrder } from '../../utils/TreeNode.mjs'
 import { testData } from './testData.mjs'
 
 const isDefined = (value) => value !== undefined && value !== null;

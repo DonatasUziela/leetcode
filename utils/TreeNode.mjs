@@ -1,4 +1,4 @@
-import { isDefined } from '../utils/isDefined.mjs'
+import { isDefined } from './isDefined.mjs'
 
 export function TreeNode(val, left, right) {
     this.val = (val === undefined ? 0 : val)

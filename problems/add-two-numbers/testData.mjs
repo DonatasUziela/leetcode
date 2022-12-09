@@ -1,4 +1,4 @@
-import { ListNode } from "../ListNode.mjs";
+import { ListNode } from '../../utils/ListNode.mjs'
 
 export const testCases = [
     {
