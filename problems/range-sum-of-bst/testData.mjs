@@ -1,4 +1,4 @@
-import { TreeNode } from "./TreeNode.mjs";
+import { TreeNode } from '../../utils/TreeNode.mjs'
 
 export const testData = [
     {

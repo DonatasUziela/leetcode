@@ -3,7 +3,7 @@
 
 import { expect } from 'chai'
 import { testData } from './testData.mjs'
-import { TreeNode } from './TreeNode.mjs'
+import { TreeNode } from '../../utils/TreeNode.mjs'
 
 /**
  * @param {TreeNode} root
